@@ -28,7 +28,7 @@ jobs:
       run: |
         mkdir dist
         cd dist
-        cookiecutter --no-input $GITHUB_WORKSPACE package_name=myapp
+        python -m cookiecutter --no-input $GITHUB_WORKSPACE package_name=myapp
         tree .
     # - name: Lint with flake8
     #   run: |
