@@ -30,17 +30,17 @@ jobs:
             python -m cookiecutter --no-input $GITHUB_WORKSPACE package_name=myapp
     - name: Install generated app dependencies
       run: |
-        cd dist/myapp && python -m venv env && source env/bin/activate \
-            pip install -r requirements.txt && \
-            pip install pytest pytest-cov flake8
+        cd dist/myapp
+        pip install -r requirements.txt
+        pip install pytest pytest-cov flake8
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
-        cd dist/myapp && source env/bin/activate 
+        cd dist/myapp
         flake8 . --exclude env --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --exclude env --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        cd dist/myapp && source env/bin/activate 
+        cd dist/myapp
         pytest --cov
