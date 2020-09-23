@@ -1,6 +1,7 @@
-from flask import current_app, Blueprint, jsonify
+from flask import Blueprint, jsonify
 
 default = Blueprint('default', __name__)
+
 
 @default.route('/')
 def index():
