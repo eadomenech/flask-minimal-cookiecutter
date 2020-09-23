@@ -29,7 +29,9 @@ jobs:
         mkdir dist
         cd dist
         python -m cookiecutter --no-input $GITHUB_WORKSPACE package_name=myapp
-        tree .
+    - name: Test dirs
+      run: |
+        ls -la
     # - name: Lint with flake8
     #   run: |
     #     # stop the build if there are Python syntax errors or undefined names
