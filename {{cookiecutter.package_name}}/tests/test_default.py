@@ -1,5 +1,5 @@
-import pytest
 import json
+
 
 def test_default_route(client):
     res = client.get('/')
