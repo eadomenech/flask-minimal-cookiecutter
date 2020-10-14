@@ -7,10 +7,11 @@ def create_app(config):
     # load the config
     app.config.from_object(config)
 
-    # load some plugins, modules or blueprints
-    from application.views.default import default
+    with app.app_context():
+        # load some plugins, modules or blueprints
+        from application.views.default import default
 
-    # registrar los blueprints
-    app.register_blueprint(default)
+        # registrar los blueprints
+        app.register_blueprint(default)
 
     return app

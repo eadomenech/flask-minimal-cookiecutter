@@ -4,7 +4,11 @@ from application import create_app
 
 @pytest.fixture
 def app():
-    yield create_app('config.TestConfig')
+    app = create_app('config.TestConfig')
+
+    with app.app_context():
+        yield app
+
 
 
 @pytest.fixture
